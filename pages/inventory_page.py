@@ -1,0 +1,8 @@
+from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
+
+class InventoryPage(BasePage):
+    INVENTORY_CONTAINER = (By.ID, "inventory_container")
+
+    def is_loaded(self):
+        return self.find_element(self.INVENTORY_CONTAINER).is_displayed()
