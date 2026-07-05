@@ -29,6 +29,13 @@ jobs:
       run: |
         pytest api_testing/ -c api_testing/pytest.ini
       # Nota: Ajusta "api_testing/test/" si tu carpeta interna de pruebas se llama "tests" en plural
+    - name: Run All Automation Tests
+        run: |
+          echo "Ejecutando pruebas de API..."
+          pytest api_testing/ -c api_testing/pytest.ini
+          
+          echo "Ejecutando pruebas de Interfaz Web (Selenium)..."
+          pytest tests/
 
     - name: Guardar el Reporte HTML como artefacto del servidor
       if: always() # Hace que se guarde el reporte incluso si los tests fallaron

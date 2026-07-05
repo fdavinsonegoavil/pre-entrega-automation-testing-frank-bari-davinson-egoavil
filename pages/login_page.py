@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 import time
+import pytest_check as check
 
 class LoginPage(BasePage):
     USERNAME_INPUT = (By.ID, "user-name")
@@ -19,3 +20,6 @@ class LoginPage(BasePage):
         self.type_text(self.PASSWORD_INPUT, password)
         self.click(self.LOGIN_BUTTON)
         time.sleep(4)  # Espera para que la página se cargue después del login  
+        # Agregamos el self. antes de driver
+        url_actual = self.driver.current_url
+        check.equal(url_actual, "https://www.saucedemo.com/inventory.html", "La URL no es correcta")

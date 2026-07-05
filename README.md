@@ -40,3 +40,11 @@ Con el entorno virtual activado, instala las bibliotecas de automatización ejec
 ```bash
 pip install -r requirements.txt
 ```
+### 5. Ejecutar las Pruebas
+
+Una vez configurado el entorno y con el entorno virtual activo `(venv)`, puedes ejecutar las suites de prueba de manera independiente o completa.
+
+#### Ejecutar las pruebas de la API (TP Final)
+Para correr exclusivamente las pruebas de la API utilizando el archivo de configuración personalizado y aislar la ejecución:
+```bash
+pytest api_testing/ -c api_testing/pytest.ini
