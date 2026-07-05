@@ -8,5 +8,8 @@ class CartPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
         
+    def is_loaded(self):
+        return self.find_element(self.CHECKOUT_BUTTON).is_displayed()
+
     def click_checkout(self):
         self.click(self.CHECKOUT_BUTTON)

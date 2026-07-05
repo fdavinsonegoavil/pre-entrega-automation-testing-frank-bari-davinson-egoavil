@@ -12,6 +12,9 @@ class CheckPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
+    def is_loaded(self):
+        return self.find_element(self.FIRST_NAME_INPUT).is_displayed()
+
     def completar_informacion_checkout(self, first_name, last_name, zip_code):
         self.type_text(self.FIRST_NAME_INPUT, first_name)
         self.type_text(self.LAST_NAME_INPUT, last_name)
