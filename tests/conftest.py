@@ -19,6 +19,9 @@ def driver():
     else:
         # Si estás en tu máquina local, mantienes tus preferencias visuales
         options.add_argument('--start-maximized')
+        options.add_experimental_option("prefs", {
+            "profile.password_manager_leak_detection": False
+        })
 
     # 2. Inicializar el servicio y el Driver pasando las opciones
     service = Service(ChromeDriverManager().install())

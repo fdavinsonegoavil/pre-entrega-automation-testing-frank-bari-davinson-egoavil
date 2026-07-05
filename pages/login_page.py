@@ -19,7 +19,7 @@ class LoginPage(BasePage):
         self.type_text(self.USERNAME_INPUT, username)
         self.type_text(self.PASSWORD_INPUT, password)
         self.click(self.LOGIN_BUTTON)
-        time.sleep(4)  # Espera para que la página se cargue después del login  
+        time.sleep(2)  # Espera para que la página se cargue después del login  
         # Agregamos el self. antes de driver
         url_actual = self.driver.current_url
         check.equal(url_actual, "https://www.saucedemo.com/inventory.html", "La URL no es correcta")
