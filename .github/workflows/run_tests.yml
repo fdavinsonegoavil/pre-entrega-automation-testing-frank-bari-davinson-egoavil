@@ -1,4 +1,4 @@
-name: Ejecución Automática de Pruebas de API
+name: Ejecución Automática de Pruebas de API y Web
 
 # El framework se ejecutará automáticamente ante cada Push o Pull Request en la rama main
 on:
@@ -18,24 +18,19 @@ jobs:
     - name: Configurar entorno de Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.11' # Versión estable de Python para testing
+        python-version: '3.11' # Versión de Python estable para testing
 
     - name: Instalar dependencias necesarias
       run: |
         python -m pip install --upgrade pip
-        pip install requests pytest pytest-html pytest-check
+        pip install requests pytest pytest-html pytest-check selenium webdriver-manager
 
-    - name: Ejecutar las pruebas de Pytest de la API
-      run: |
-        pytest api_testing/ -c api_testing/pytest.ini
-      # Nota: Ajusta "api_testing/test/" si tu carpeta interna de pruebas se llama "tests" en plural
     - name: Run All Automation Tests
-        run: |
-          echo "Ejecutando pruebas de API..."
-          pytest api_testing/ -c api_testing/pytest.ini
-          
-          echo "Ejecutando pruebas de Interfaz Web (Selenium)..."
-          pytest tests/
+      run: |
+        echo "Ejecutando pruebas de API..."
+        pytest api_testing/ -c api_testing/pytest.ini
+        echo "Ejecutando pruebas de Interfaz Web (Selenium)..."
+        pytest tests/
 
     - name: Guardar el Reporte HTML como artefacto del servidor
       if: always() # Hace que se guarde el reporte incluso si los tests fallaron
