@@ -1,0 +1,10 @@
+# Caché de Pytest
+.pytest_cache/
+__pycache__/
+*/__pycache__/
+
+# Entorno virtual local
+venv/
+
+# Reportes locales (opcional, si no quieres que se acumulen en GitHub)
+api_testing/reports/
