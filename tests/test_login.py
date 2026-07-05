@@ -7,5 +7,6 @@ def test_successful_login(driver):
 
     login_page.load()
     login_page.login("standard_user", "secret_sauce")
+    login_page.click()
 
     assert inventory_page.is_loaded(), "El inventario no se cargó; el login falló."
